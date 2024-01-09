@@ -1,4 +1,4 @@
-const ABI = [
+const ABI_staging = [
 	{
 	   "inputs":[
 		  {
@@ -21,16 +21,52 @@ const ABI = [
 	   "anonymous":false,
 	   "inputs":[
 		  {
-			 "indexed":true,
+			 "indexed":false,
 			 "internalType":"string",
 			 "name":"orgGuid",
 			 "type":"string"
 		  },
 		  {
-			 "indexed":true,
+			 "indexed":false,
+			 "internalType":"string",
+			 "name":"orgName",
+			 "type":"string"
+		  },
+		  {
+			 "indexed":false,
 			 "internalType":"string",
 			 "name":"itemGuid",
 			 "type":"string"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"uint256",
+			 "name":"itemIndex",
+			 "type":"uint256"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"string",
+			 "name":"itemName",
+			 "type":"string"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"string",
+			 "name":"itemJSONIPFS",
+			 "type":"string"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"uint256",
+			 "name":"PVT",
+			 "type":"uint256"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"uint256",
+			 "name":"NVT",
+			 "type":"uint256"
 		  }
 	   ],
 	   "name":"ItemAdded",
@@ -40,7 +76,7 @@ const ABI = [
 	   "anonymous":false,
 	   "inputs":[
 		  {
-			 "indexed":true,
+			 "indexed":false,
 			 "internalType":"string",
 			 "name":"orgGuid",
 			 "type":"string"
@@ -52,7 +88,7 @@ const ABI = [
 			 "type":"string"
 		  },
 		  {
-			 "indexed":true,
+			 "indexed":false,
 			 "internalType":"address",
 			 "name":"klerosAddress",
 			 "type":"address"
@@ -65,7 +101,7 @@ const ABI = [
 	   "anonymous":false,
 	   "inputs":[
 		  {
-			 "indexed":true,
+			 "indexed":false,
 			 "internalType":"string",
 			 "name":"orgGuid",
 			 "type":"string"
@@ -77,7 +113,7 @@ const ABI = [
 			 "type":"string"
 		  },
 		  {
-			 "indexed":true,
+			 "indexed":false,
 			 "internalType":"address",
 			 "name":"klerosAddress",
 			 "type":"address"
@@ -92,8 +128,45 @@ const ABI = [
 		  {
 			 "indexed":false,
 			 "internalType":"string",
+			 "name":"orgGuid",
+			 "type":"string"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"string",
+			 "name":"name",
+			 "type":"string"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"address",
+			 "name":"payoutWallet",
+			 "type":"address"
+		  }
+	   ],
+	   "name":"PayoutWalletAssigned",
+	   "type":"event"
+	},
+	{
+	   "anonymous":false,
+	   "inputs":[
+		  {
+			 "indexed":false,
+			 "internalType":"string",
 			 "name":"itemGuid",
 			 "type":"string"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"uint256",
+			 "name":"PVT",
+			 "type":"uint256"
+		  },
+		  {
+			 "indexed":false,
+			 "internalType":"uint256",
+			 "name":"NVT",
+			 "type":"uint256"
 		  }
 	   ],
 	   "name":"TokensMinted",
@@ -134,6 +207,11 @@ const ABI = [
 		  {
 			 "internalType":"string",
 			 "name":"itemGuid",
+			 "type":"string"
+		  },
+		  {
+			 "internalType":"string",
+			 "name":"itemName",
 			 "type":"string"
 		  },
 		  {
@@ -374,6 +452,25 @@ const ABI = [
 	{
 	   "inputs":[
 		  {
+			 "internalType":"string",
+			 "name":"guid",
+			 "type":"string"
+		  }
+	   ],
+	   "name":"getNameByGUID",
+	   "outputs":[
+		  {
+			 "internalType":"string",
+			 "name":"",
+			 "type":"string"
+		  }
+	   ],
+	   "stateMutability":"view",
+	   "type":"function"
+	},
+	{
+	   "inputs":[
+		  {
 			 "internalType":"uint256",
 			 "name":"index",
 			 "type":"uint256"
@@ -507,12 +604,12 @@ const ABI = [
 			 "type":"string"
 		  }
 	   ],
-	   "name":"guidCollisions",
+	   "name":"guidLookup",
 	   "outputs":[
 		  {
-			 "internalType":"bool",
+			 "internalType":"string",
 			 "name":"",
-			 "type":"bool"
+			 "type":"string"
 		  }
 	   ],
 	   "stateMutability":"view",
@@ -800,4 +897,4 @@ const ABI = [
 	}
  ]
 
-module.exports = ABI;
+ module.exports = ABI_staging;
